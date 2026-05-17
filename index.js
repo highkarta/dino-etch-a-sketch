@@ -23,7 +23,15 @@ function generateButtons(count){
     container.appendChild(childDiv);
     
     childDiv.addEventListener("mouseover", () => {
-      childDiv.style.backgroundColor = "dodgerblue";
+      let color = getRandomRGB();
+      childDiv.style.backgroundColor = color;
     });
   }
+}
+
+function getRandomRGB(){
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
 }
