@@ -23,26 +23,18 @@ function generateButtons(count) {
     childDiv.style.width = `${100 / count}%`;
     childDiv.classList.add('new-style');
     container.appendChild(childDiv);
-    
+
     let color = getRandomRGB();
+    let startingOpacity = 0.1;
     childDiv.addEventListener('mouseover', () => {
       if (childDiv.classList.contains('new-style')) {
         childDiv.style.backgroundColor = color;
+        childDiv.style.opacity = startingOpacity;
         childDiv.classList.remove('new-style');
-      }
-      /*
-      count++;
-      if (count == 0) {
-        count++;
       } else {
-        childDiv.style.opacity = 1;
-        console.log(count);
+        startingOpacity += 0.1;
+        childDiv.style.opacity = startingOpacity;
       }
-      */
-      /*
-      let divOpacity = 0;
-      childDiv.style.opacity = (divOpacity + 0.1);
-      */
     });
   }
 }
@@ -51,6 +43,5 @@ function getRandomRGB() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  const a = 0.1;
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
+  return `rgb(${r}, ${g}, ${b})`;
 }
